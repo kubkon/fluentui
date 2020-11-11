@@ -2,7 +2,7 @@ import * as React from 'react';
 import { max as d3Max } from 'd3-array';
 import { Axis as D3Axis } from 'd3-axis';
 import { scaleLinear as d3ScaleLinear, ScaleLinear as D3ScaleLinear } from 'd3-scale';
-import { classNamesFunction, getId, getRTL, find, warnDeprecations } from '@fluentui/react/lib/Utilities';
+import { classNamesFunction, getId, getRTL, warnDeprecations } from '@fluentui/react/lib/Utilities';
 import { IPalette } from '@fluentui/react/lib/Styling';
 import { DirectionalHint } from '@fluentui/react/lib/Callout';
 import { ILegend, Legends } from '../Legends/index';
@@ -18,6 +18,7 @@ import {
   IVerticalStackedBarChartStyles,
   IVerticalStackedChartProps,
   IVSChartDataPoint,
+  IModifiedCartesianChartProps,
 } from '../../index';
 import { FocusZoneDirection } from '@fluentui/react-focus';
 import { ChartTypes, XAxisTypes } from '../../utilities/index';
@@ -77,7 +78,6 @@ export class VerticalStackedBarChartBase extends React.Component<
       colors: 'IVSChartDataPoint.color',
       chartLabel: 'use your own title for chart',
     });
-    this._onLegendLeave = this._onLegendLeave.bind(this);
     this._handleMouseOut = this._handleMouseOut.bind(this);
     this._calloutId = getId('callout');
     this._adjustProps();
